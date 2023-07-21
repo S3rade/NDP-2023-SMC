@@ -11,7 +11,7 @@ NDP 2023 Spectator Management Committee Developments.
 | models_info_bot.py | SQLAlchemy DB Table Models |
 
 
-## Blue Force Tracekr Bot
+## Blue Force Tracker Bot
 | File Name | Purpose |
 | --- | --- |
 | /BFTT | Folder to Blue Force Tracker Bot Stuff|
