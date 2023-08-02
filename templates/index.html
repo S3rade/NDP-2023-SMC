@@ -1,0 +1,29 @@
+<!--  how to use css in python_ flask-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--  Load CSS in Flask with html-->
+    <link rel="stylesheet" href='/staticFiles/main.css' />
+ 
+<!--  Load JavaScript in Flask with html-->
+
+<nav id='menu'>
+  <ul>
+      <li><a href='/'>Home</a></li>
+      <li><a href='/'>Live Location Table</a></li>
+      <li><a href='/bftt'>Blue Force Tracking Table</a></li>
+      <li><a href='/tracker_table'>Progress Tracker</a></li>
+      <li><a href='/geo_fencing'>Geo Fencing Tracker</a></li>
+  </ul>
+  </nav>
+</head>
+
+<body>
+	<center><u><h1>42 SAR Data Team Productions&#169;</h1></u></center>
+
+        {% block content %} {% endblock %}
+
+  
+</body>
+
+</html>

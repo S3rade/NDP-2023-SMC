@@ -1,0 +1,58 @@
+
+{% extends 'index.html'%}
+{% block content %}
+<div class="row">
+    <div class="column">
+    <iframe width="800" height="600" src="https://lookerstudio.google.com/embed/reporting/2105847e-fb03-4e89-9798-bce22da40212/page/owgSD" frameborder="0" style="border:0" allowfullscreen></iframe>
+    <center><table class='progress-summary' style="font-size: 2rem" border='1'>
+        <thead>
+            {% for header_count in headers_count %}
+            <th style="padding: 2px 6px; background-color: #eee; text-align: center;">{{ header_count }}</th>
+            {% endfor %}
+        </thead>
+        <tbody>
+            <tr>
+                {% for v in count %}
+                <td style="text-align: center;">{{v}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table></center>
+    </div>
+    <div class="column1">
+    <form action="/geteta" method = "POST">
+        <input type="hidden" id="LocId" name="LocId" value="ALL">
+        <input type="submit" value="Get ETA">
+    </form>
+    <table border= '1'>
+    <tr >
+    <th> Name </th>
+    <th> School </th>
+    <th> Arrival Direction </th>
+    <th> Departure Direction </th>
+    <th> Destination</th>
+    <th> Time Location Sent </th>
+    <th> In Distance </th>
+    <th> ETA </th>
+    </tr>
+    {% for c in results %}
+    <tr >
+        <td>{{c[1]}}</td>
+        <td>{{c[2]}}</td>
+        <td>{{c[3]}}</td>
+        {% if c[3] == "SPED" -%}
+		<td>SPED </td>
+	{% else -%}
+		<td>{{c[4]}}</td>
+	{%- endif %}
+        <td>{{c[5]}}</td>
+        <td>{{c[6].strftime('%H:%M:%S')}}</td>
+        <td style="text-align: center;">{{c[7]}}</td>
+	<td>{{c[8]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}
+        

@@ -1,0 +1,54 @@
+{% extends 'index.html'%}
+{% block content %}
+<meta http-equiv="refresh" content="60">
+<center>
+<div>
+    <table class='progress-summary' style="font-size: 2rem" border='1'>
+        <thead>
+	    <th style="padding: 2px 6px; background-color: #eee;">ALP Count</th>	
+            <th style="padding: 2px 6px; background-color: #eee;">At School</th>
+            <th style="padding: 2px 6px; background-color: #eee;">Enroute</th>
+            <th style="padding: 2px 6px; background-color: #eee;">At Padang</th>
+            <th style="padding: 2px 6px; background-color: #eee;">Seated</th>
+	    <th style="padding: 2px 6px; background-color: #eee;">No. of Pax</th>
+        </thead>
+        <tbody>
+            <tr>
+                {% for v in Summarized %}
+                <td style="text-align: center;">{{v}}</td>
+                {% endfor %}
+            </tr>
+        </tbody>
+    </table>
+    <br>
+    <table border= '1' style="height: 60px; overflow-y: scroll">
+    <tr style="position: sticky; top: 0;">
+        {% for header in headers %}
+        <th style="text-align: center; padding: 0 6px;">{{ header }}</th>
+        {% endfor %}
+    </tr>
+    {% for row in Table_data%}
+    <tr>
+        {% for key, value in row.items() %}
+        {% if key == 'TIMING NET DIFFERENCE' -%}
+            {% if value.startswith('-') -%}
+                <td style="background-color: #fecaca; text-align: center; padding: 0 6px;"> {{ value }}</td>
+            {% else -%}
+                <td style="text-align: center; padding: 0 6px;"> {{ value }}</td>
+            {%- endif %}
+        {%- elif key in ['STAGE', 'LAST UPDATE'] -%}
+            {% if row['is_recent'] -%}
+                <td style="background-color: #bae6fd;text-align: center; padding: 0 6px;"> {{ value }}</td>
+            {% else -%}
+                <td style="text-align: center; padding: 0 6px;"> {{ value }}</td>
+            {%- endif %}
+        {%- elif not key == 'is_recent' -%}
+            <td> {{ value }}</td>
+        {%- endif %}
+        {% endfor %}
+    </tr>
+    {% endfor %}
+    </table>
+</div>
+</center>
+{% endblock %}
