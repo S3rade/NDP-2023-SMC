@@ -1,4 +1,4 @@
-#  Spectator Management Comittee (SMC) 2023 <br _> Prodcuts for National Education Show & National Day Parade 2023
+#  Spectator Management Comittee (SMC) 2023 <br _> Products for National Education Show & National Day Parade 2023
 
 ![42 SAR DATA TEAM LOGO](images/42%20Data%20Team%20logo.gif)
 
